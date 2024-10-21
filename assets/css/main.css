@@ -1252,3 +1252,62 @@ section,
   -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
+
+/* Scroll Container Styling */
+.image-scroll-container {
+  width: 80%; /* Mengubah lebar menjadi 80% dari lebar parent */
+  max-width: 1200px; /* Menambahkan lebar maksimum */
+  height: 6em;
+  overflow: hidden;
+  position: relative;
+  margin: 20px auto; /* Mengubah margin menjadi auto untuk posisi tengah */
+  border-radius: 10px; /* Opsional: menambahkan sudut melengkung */
+}
+
+.image-scroll-container .scroll-wrapper {
+  display: flex;
+  gap: 10px;
+  height: 100%;
+  position: absolute;
+  left: 0; /* Mengubah left menjadi 0 */
+  transform: translateX(0); /* Menghapus translateX */
+}
+
+.image-scroll-container .scroll-item {
+  flex: 0 0 15em;
+  height: 100%;
+}
+
+.image-scroll-container .scroll-item a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.image-scroll-container .scroll-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+@keyframes scrollImages {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-15em * 6 - 60px)); /* Menyesuaikan dengan jumlah gambar dan gap */
+  }
+}
+
+.image-scroll-container .scroll-wrapper {
+  animation: scrollImages 30s linear infinite;
+}
+
+.image-scroll-container:hover .scroll-wrapper {
+  animation-play-state: paused;
+}
+
+/* Menghilangkan horizontal scrollbar jika muncul */
+body {
+  overflow-x: hidden;
+}
