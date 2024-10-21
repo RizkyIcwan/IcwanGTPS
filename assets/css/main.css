@@ -850,7 +850,7 @@ section,
 
 @media (min-width: 768px) {
   .hero .hero-img {
-    max-width: 600px;
+    max-width: 650px;
   }
 }
 
@@ -966,6 +966,7 @@ section,
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-shadow: 5px solid black;
 }
 
 .about .content .read-more i {
@@ -1133,3 +1134,90 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+
+.price-warning {
+  color: red;
+}
+
+
+/* RGB BUTTTON */
+
+/* button */
+.read-more {
+  /* margin: 100px; */
+  padding: 15px 40px;
+  border: none;
+  outline: none;
+  color: #FFF;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 12px;
+}
+.read-more::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background-color: #333; */
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/* glow */
+.read-more::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #FF0000, #FF7300, #FFFB00, #48FF00,
+    #00FFD5, #002BFF, #FF00C8, #FF0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;} 
+}
+
+/* hover */
+.read-more:hover::before {
+  opacity: 1;
+}
+
+.read-more:active:after {
+  background: transparent;
+}
+
+.read-more:active {
+  color: #000;
+  font-weight: bold;
+}
+
+
+/* Rgb Text */
+/* .rgb-text{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	font-family: "Libre Barcode 39 Text";
+	font-size: 4em;
+	text-align: center;
+	color: white;
+	transform: translateX(-50%) translateY(-50%);
+} */
