@@ -1275,15 +1275,56 @@ section,
   font-weight: bold;
 }
 
-/* Scroll Container Styling */
+/*--------------------------------------------------------------
+Scroll Container Styling
+--------------------------------------------------------------*/
+
 .image-scroll-container {
-  width: 80%; /* Mengubah lebar menjadi 80% dari lebar parent */
-  max-width: 1200px; /* Menambahkan lebar maksimum */
+  width: 60%; /* Mengubah lebar menjadi 80% dari lebar parent */
+  max-width: 1000px; /* Menambahkan lebar maksimum */
   height: 6em;
   overflow: hidden;
   position: relative;
   margin: 20px auto; /* Mengubah margin menjadi auto untuk posisi tengah */
   border-radius: 10px; /* Opsional: menambahkan sudut melengkung */
+}
+
+/* Tambahkan CSS ini ke file main.css */
+/* Tambahkan gradient mask untuk efek memudar di kedua sisi */
+.image-scroll-container {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+/* Efek default (gelap) pada gambar */
+.image-scroll-container .scroll-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(40%); /* Membuat gambar gelap secara default */
+  transition: filter 0.3s ease; /* Animasi transisi */
+}
+
+/* Efek hover (terang) saat mouse diarahkan */
+.image-scroll-container .scroll-item:hover img {
+  filter: brightness(100%); /* Membuat gambar terang saat hover */
+}
+
+/* Efek aktif (terang) saat diklik */
+.image-scroll-container .scroll-item:active img {
+  filter: brightness(100%); /* Membuat gambar terang saat diklik */
 }
 
 .image-scroll-container .scroll-wrapper {
@@ -1296,7 +1337,7 @@ section,
 }
 
 .image-scroll-container .scroll-item {
-  flex: 0 0 15em;
+  flex: 0 0 12em;
   height: 100%;
 }
 
