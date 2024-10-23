@@ -201,18 +201,13 @@ window.onload = () => {
 
 
 // Toggle Menu
-document.addEventListener('DOMContentLoaded', function() {
-  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-  const navmenu = document.querySelector('.navmenu');
-
-  if (mobileNavToggle && navmenu) {
-    mobileNavToggle.addEventListener('click', function(e) {
-      e.preventDefault();
-      navmenu.classList.toggle('active');
-      this.classList.toggle('bi-list');
-      this.classList
-  });
-  }});
+// Contoh yang benar
+$('.mobile-nav-toggle').on('click', function() {
+  // Hanya toggle menu navigation
+  $('.mobile-nav').toggleClass('active');
+  // Toggle icon antara hamburger dan close
+  $(this).toggleClass('bi-list bi-x');
+});
 
   
   // ——————————————————————————————————————————————————
